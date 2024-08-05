@@ -9,7 +9,7 @@ public class Sum {
 
         int sum = 0;
         for (int i = from; i <= to; i++) {
-            System.err.print(i);
+            System.err.println(i);
             sum += i;
             Thread.sleep(500);
         }
