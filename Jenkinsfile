@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Initialization') {
             steps {
-                sh 'rm out.txt'
+                sh 'rm -rf out.txt'
                 sh 'touch out.txt'
             }
         }
