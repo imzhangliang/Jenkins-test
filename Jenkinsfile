@@ -2,14 +2,28 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Initialization') {
             steps {
-                sh 'javac Main.java'
+                sh 'rm out.txt'
+                sh 'touch out.txt'
             }
         }
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'java Main'
+                sh 'javac Sum.java'
+            }
+        }
+        stage('sum') {
+            steps {
+                sh 'java Sum 1 25 >> out.txt'
+                sh 'java Sum 26 50 >> out.txt'
+                sh 'java Sum 51 75 >> out.txt'
+                sh 'java Sum 75 100 >> out.txt'
+            }
+        }
+        stage('All Sum') {
+            steps {
+                sh 'bash sum_numbers.sh out.txt'
             }
         }
     }
