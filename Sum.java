@@ -1,5 +1,5 @@
 public class Sum {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         if (args.length != 2) {
             throw new RuntimeException("The number of arguments must be exactly two");
         }
@@ -9,7 +9,9 @@ public class Sum {
 
         int sum = 0;
         for (int i = from; i <= to; i++) {
+            System.err.print(i);
             sum += i;
+            Thread.sleep(500);
         }
 
         System.out.println(sum);
