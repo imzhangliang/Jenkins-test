@@ -23,6 +23,7 @@ pipeline {
         }
         stage('All Sum') {
             steps {
+                sh 'cat out.txt'
                 sh 'bash sum_numbers.sh out.txt'
             }
         }
